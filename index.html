@@ -64,7 +64,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-    /* Apple's Liquid Glass Effect para a cor #152636 - Ajustado para tom escuro original */
+    /* Apple's Liquid Glass Effect Ajustado - Dark Mode Premium */
     .glass-card {
       background: linear-gradient(145deg, rgba(21, 38, 54, 0.88) 0%, rgba(21, 38, 54, 0.75) 100%);
       backdrop-filter: blur(40px) saturate(130%);
@@ -195,9 +195,9 @@
         </button>
         
         <button 
-          onclick="copyLink()" 
+          onclick="nativeShare()" 
           class="w-10 h-10 rounded-full flex items-center justify-center glass-panel text-gold-400 hover:text-white transition-all shadow-lg relative"
-          title="Copiar link do cartão"
+          title="Compartilhar cartão"
           id="copy-link-btn"
         >
           <span class="copy-status-icon flex items-center justify-center">
@@ -237,11 +237,11 @@
 
       <div class="flex gap-2 w-full">
         <button 
-          onclick="copyLink()" 
+          onclick="nativeShare()" 
           class="flex-1 glass-btn rounded-xl py-2.5 text-xs font-semibold text-gold-400 hover:text-white flex items-center justify-center gap-1.5"
         >
-          <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-          <span>Copiar Link</span>
+          <i data-lucide="share" class="w-3.5 h-3.5"></i>
+          <span>Compartilhar</span>
         </button>
         <button 
           onclick="toggleQR()" 
@@ -373,7 +373,7 @@
 
             <!-- E-mail Link -->
             <a 
-              href="mailto:uheuler@gmail.com" 
+              href="mailto:uheider2@hotmail.com" 
               class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl text-slate-200 hover:text-white group relative overflow-hidden"
               id="link-email"
             >
@@ -397,7 +397,7 @@
 
             <!-- Consultório Maps Location Link -->
             <a 
-              href="https://maps.app.goo.gl/t3csMfo2UWujC3NZA" 
+              href="https://maps.app.goo.gl/x856agySGk23vnBz8" 
               target="_blank" 
               rel="noopener noreferrer"
               class="glass-btn flex flex-col items-center justify-center p-4 rounded-xl text-slate-200 hover:text-white group relative overflow-hidden"
@@ -440,7 +440,7 @@
                 </div>
                 <div class="leading-tight">
                   <h4 class="text-[13px] font-semibold text-white">Psicoterapia Junguiana (presencial)</h4>
-                  <p class="text-[10px] text-slate-300 line-clamp-1">Atendimento clínico presencial no consultório em Salvador.</p>
+                  <p class="text-[10px] text-slate-300 line-clamp-1">Atendimento clínico (individual, casal e grupo).</p>
                 </div>
               </div>
               <div>
@@ -450,7 +450,7 @@
             </button>
             <div id="service-details-psicoterapia-presencial" class="hidden px-3 pb-3 pt-1 border-t border-gold-500/10 fade-in">
               <p class="text-[11px] text-slate-200 leading-relaxed font-light">
-                Atendimento clínico individual presencial no Edifício Empresarial American Tower (Caminho das Árvores, Salvador - BA), focado no tratamento de ansiedade, sobrecarga emocional, depressão e autodesenvolvimento baseado na Psicologia Analítica (Junguiana).
+                Atendimento clínico presencial (individual, casal e grupo) no Edifício Empresarial American Tower (Caminho das Árvores, Salvador - BA), focado no tratamento de ansiedade, sobrecarga emocional, depressão e autodesenvolvimento baseado na Psicologia Analítica (Junguiana).
               </p>
               <button onclick="selectServiceAndConnect('Psicoterapia Junguiana (Presencial)')" class="mt-2.5 text-[10px] font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1 uppercase tracking-wider">
                 <span>Agendar Sessão Presencial</span> <i data-lucide="arrow-right" class="w-2.5 h-2.5"></i>
@@ -485,7 +485,34 @@
             </div>
           </div>
 
-          <!-- Service Item 3: Laudos para Cirurgias -->
+          <!-- Service Item 3: Supervisão Psicológica (NOVO) -->
+          <div id="service-item-supervisao" class="rounded-xl border transition-all overflow-hidden bg-white/[0.02] border-gold-500/20 hover:border-gold-500/40 hover:bg-white/[0.04]">
+            <button onclick="toggleService('supervisao')" class="w-full text-left p-3 flex items-center justify-between gap-3 cursor-pointer">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-[#07131e] text-gold-400 border border-gold-500/30">
+                  <i data-lucide="users" class="w-4 h-4"></i>
+                </div>
+                <div class="leading-tight">
+                  <h4 class="text-[13px] font-semibold text-white">Supervisão Psicológica</h4>
+                  <p class="text-[10px] text-slate-300 line-clamp-1">Para psicólogos, estudantes e psicoterapeutas.</p>
+                </div>
+              </div>
+              <div>
+                <i data-lucide="chevron-down" id="service-icon-down-supervisao" class="w-4 h-4 text-slate-400"></i>
+                <i data-lucide="chevron-up" id="service-icon-up-supervisao" class="w-4 h-4 text-gold-400 hidden"></i>
+              </div>
+            </button>
+            <div id="service-details-supervisao" class="hidden px-3 pb-3 pt-1 border-t border-gold-500/10 fade-in">
+              <p class="text-[11px] text-slate-200 leading-relaxed font-light">
+                Auxílio técnico e ético para psicólogos, alunos de psicologia e psicoterapeutas na condução de seus casos. A supervisão é um pilar essencial para o profissional não se perder nos conteúdos dos pacientes e manter a clareza analítica em seus atendimentos.
+              </p>
+              <button onclick="selectServiceAndConnect('Supervisão Psicológica')" class="mt-2.5 text-[10px] font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1 uppercase tracking-wider">
+                <span>Solicitar Supervisão</span> <i data-lucide="arrow-right" class="w-2.5 h-2.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Service Item 4: Laudos para Cirurgias -->
           <div id="service-item-laudos" class="rounded-xl border transition-all overflow-hidden bg-white/[0.02] border-gold-500/20 hover:border-gold-500/40 hover:bg-white/[0.04]">
             <button onclick="toggleService('laudos')" class="w-full text-left p-3 flex items-center justify-between gap-3 cursor-pointer">
               <div class="flex items-center gap-3">
@@ -512,7 +539,7 @@
             </div>
           </div>
 
-          <!-- Service Item 4: Saúde Mental & NR-1 (B2B) -->
+          <!-- Service Item 5: Saúde Mental & NR-1 (B2B) -->
           <div id="service-item-nr1" class="rounded-xl border transition-all overflow-hidden bg-white/[0.02] border-gold-500/20 hover:border-gold-500/40 hover:bg-white/[0.04]">
             <button onclick="toggleService('nr1')" class="w-full text-left p-3 flex items-center justify-between gap-3 cursor-pointer">
               <div class="flex items-center gap-3">
@@ -614,6 +641,7 @@
               >
                 <option value="Psicoterapia Junguiana (Presencial)">Psicoterapia Junguiana (Presencial)</option>
                 <option value="Psicoterapia Junguiana (Online)">Psicoterapia Junguiana (Online)</option>
+                <option value="Supervisão Psicológica">Supervisão Psicológica</option>
                 <option value="Laudos Cirúrgicos (Bariátrica/Vasectomia)">Laudos Pré-Operatórios (Bariátrica/Vasectomia)</option>
                 <option value="Palestras / Consultoria NR-1">Palestras & Consultoria NR-1 (Empresas)</option>
                 <option value="Outras Dúvidas">Outras Informações</option>
@@ -719,7 +747,21 @@
       }
     }
 
-    // 4. Copy URL Toast Notification Engine
+    // 4. Native Share & Copy URL Toast Notification Engine
+    function nativeShare() {
+      if (navigator.share) {
+        // Usa a guia de compartilhamento nativa do celular (iOS/Android)
+        navigator.share({
+          title: 'Uheider Pires - Psicologia Profunda',
+          text: 'Acesse meu cartão digital interativo para agendamentos, psicoterapia e laudos:',
+          url: targetUrl
+        }).catch(err => console.log('Compartilhamento cancelado ou falhou', err));
+      } else {
+        // Fallback: Se estiver no PC ou navegador incompatível, copia o link
+        copyLink(); 
+      }
+    }
+
     let copiedProgress = false;
     function copyLink() {
       if (copiedProgress) return;
@@ -761,7 +803,7 @@
       
       const isCurrentlyExpanded = details && !details.classList.contains('hidden');
       
-      const allServices = ['psicoterapia-presencial', 'psicoterapia-online', 'laudos', 'nr1'];
+      const allServices = ['psicoterapia-presencial', 'psicoterapia-online', 'supervisao', 'laudos', 'nr1'];
       allServices.forEach(s => {
         const detBox = document.getElementById(`service-details-${s}`);
         const up = document.getElementById(`service-icon-up-${s}`);
@@ -803,6 +845,7 @@
       const placeholders = {
         'Psicoterapia Junguiana (Presencial)': 'Informe seus dias e horários de preferência para o atendimento presencial em Salvador...',
         'Psicoterapia Junguiana (Online)': 'Informe seus dias, horários de preferência ou fuso horário para a sessão online...',
+        'Supervisão Psicológica': 'Olá, gostaria de informações sobre a supervisão clínica. Sou psicólogo(a)/estudante e...',
         'Laudos Cirúrgicos (Bariátrica/Vasectomia)': 'Especifique o tipo de cirurgia (Bariátrica, Vasectomia, etc.) e se tem urgência no laudo...',
         'Palestras / Consultoria NR-1': 'Informe o nome da empresa, número de colaboradores e objetivo do treinamento ou consultoria...',
         'Outras Dúvidas': 'Descreva brevemente como podemos te ajudar...'
@@ -819,6 +862,8 @@
           modalidadeSelect.value = 'Online';
         } else if (selected === 'Palestras / Consultoria NR-1') {
           modalidadeSelect.value = 'Corporativo / Empresa';
+        } else if (selected === 'Supervisão Psicológica') {
+          modalidadeSelect.value = 'Online'; // Supervisão comumente é online, ajusta por padrão
         }
       }
     }
@@ -840,7 +885,7 @@
         'ORG;CHARSET=UTF-8:Clínica de Psicologia Profunda',
         'TITLE;CHARSET=UTF-8:Psicólogo e Psicoterapeuta',
         'TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+5571987478533',
-        'EMAIL;TYPE=PREF,INTERNET:uheuler@gmail.com',
+        'EMAIL;TYPE=PREF,INTERNET:uheider2@hotmail.com',
         'URL;type=WORK:https://www.instagram.com/clinicadepsicologiaprofunda',
         'ADR;TYPE=WORK;CHARSET=UTF-8:;;Rua Alceu Amoroso Lima, 668, Edificio America Towers Multiempresarial 8 Andar Sala 802;Caminho das Árvores;Salvador;BA;41820-770;Brasil',
         'NOTE;CHARSET=UTF-8:Psicoterapia Junguiana, Avaliações e Laudos Psicológicos para Cirurgias (Bariátrica/Vasectomia) e Palestras de Saúde Mental (NR-1/PGR).',
@@ -920,7 +965,7 @@
         const service = document.getElementById('service-select').value;
         const message = document.getElementById('form-message').value || 'Gostaria de agendar um horário.';
 
-        const baseMessageText = `Olá Dr. Uheider Pires, acessei seu cartão digital e gostaria de agendar um atendimento.\n\n*Dados do solicitante:*\n• *Nome:* ${name}\n• *Telefone:* ${phone}\n• *Modalidade:* ${modalidade}\n• *Interesse:* ${service}\n\n*Observações:* ${message}`;
+        const baseMessageText = `Olá Dr. Uheider Pires, acessei seu cartão digital e gostaria de solicitar um atendimento.\n\n*Dados do solicitante:*\n• *Nome:* ${name}\n• *Telefone:* ${phone}\n• *Modalidade:* ${modalidade}\n• *Interesse:* ${service}\n\n*Observações:* ${message}`;
         
         const targetWhatsappUrl = `https://wa.me/5571987478533?text=${encodeURIComponent(baseMessageText)}`;
         window.open(targetWhatsappUrl, '_blank');
